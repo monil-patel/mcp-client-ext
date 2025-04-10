@@ -4,28 +4,51 @@ This is the README for your extension "mcp-client-ext". After writing up a brief
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension provides the following features:
 
-For example if there is an image subfolder under your extension project workspace:
+1. **Weather Alerts Command**:
+   - The extension includes a command `mcp-client-ext.getWeatherAlerts` that allows users to fetch weather alerts for a specific state.
+   - Users can input the state name, and the extension connects to an MCP server to retrieve weather alerts.
+   - The results are formatted into a user-friendly Markdown file and displayed in a preview editor within VS Code.
 
-\!\[feature X\]\(images/feature-x.png\)
+## How It Works
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### MCPClient Class
+
+The `MCPClient` class, located in `src/MCPClient.ts`, is responsible for interacting with the MCP server. It provides the following key functionalities:
+
+- **Connecting to the MCP Server**:
+  - The `connectToServer(serverScriptPath: string)` method establishes a connection to the MCP server using a specified server script.
+  - It validates the server script file type (either `.js` or `.py`) and initializes a transport layer for communication.
+
+- **Querying Weather Alerts**:
+  - The `queryWeather(state: string)` method sends a request to the MCP server to fetch weather alerts for a given state.
+  - It uses the `get-alerts` tool provided by the server to retrieve the data.
+
+### Extension Commands
+
+The extension defines commands in `src/extension.ts`:
+
+- **`mcp-client-ext.getWeatherAlerts`**:
+  - This command is registered during the extension activation.
+  - It performs the following steps:
+    1. Prompts the user to input a state name.
+    2. Connects to the MCP server using the `MCPClient` class.
+    3. Queries the server for weather alerts.
+    4. Formats the results using a chat model (e.g., GPT-4o from Copilot).
+    5. Displays the formatted results in a Markdown preview editor.
+
+- **`mcp-client-ext.helloWorld`**:
+  - A simple command that displays a "Hello World" message to demonstrate basic functionality.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- The MCP server script must be available and accessible. The default path used in the extension is `C:\Development\mcp-tutorial\weather\build\index.js`.
+- Ensure that the required dependencies for the MCP server are installed and configured.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension does not currently contribute any custom settings.
 
 ## Known Issues
 
