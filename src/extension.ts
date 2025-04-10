@@ -28,39 +28,98 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 async function getWeatherAlerts() {
-	console.log("Activating MCP client extension");
-	const mcpClient = new MCPClient();
+  console.log("Activating MCP client extension");
+  const mcpClient = new MCPClient();
 
-	try {
-		console.log("Connecting to server");
-		// Prototype - we wouldn't want to connect on each command call
-		await mcpClient.connectToServer("C:\\Development\\mcp-tutorial\\weather\\build\\index.js");
-		
-		const input = await vscode.window.showInputBox({
-			placeHolder: "Enter the state for which you want to get weather alerts",
-			prompt: "Enter the state for which you want to get weather alerts",
-			validateInput: (value) => {
-				if (!value) {
-					return "Please enter a state";
-				}
-				return null;
-			}
-		});
-		if (!input) {
-			return;
-		}
-		console.log("Input: ", input);
-		const result = await mcpClient.queryWeather(input);
-		
-		if (result) {
-			vscode.window.showInformationMessage(`Weather result: ${result}`);
-		} else {
-			vscode.window.showErrorMessage('Unexpected result format received from server.');
-		}
-	
-	}catch(e) {
-		console.error("Failed to connect to server: ", e);
-	}
+  try {
+    console.log("Connecting to server");
+    // Prototype - we wouldn't want to connect on each command call
+    await mcpClient.connectToServer(
+      "C:\\Development\\mcp-tutorial\\weather\\build\\index.js"
+    );
+
+    const input = await vscode.window.showInputBox({
+      placeHolder: "Enter the state for which you want to get weather alerts",
+      prompt: "Enter the state for which you want to get weather alerts",
+      validateInput: (value) => {
+        if (!value) {
+          return "Please enter a state";
+        }
+        return null;
+      },
+    });
+    if (!input) {
+      return;
+    }
+    console.log("Input: ", input);
+    const result = await mcpClient.queryWeather(input);
+    if (!result) {
+      return;
+    }
+
+    const formattedResult = await formatWeatherResult(result);
+    if (formattedResult) {
+      vscode.window.showInformationMessage(formattedResult);
+    } else {
+      vscode.window.showErrorMessage(
+        "Unexpected result format received from server."
+      );
+    }
+  } catch (e) {
+    console.error("Failed to connect to server: ", e);
+  }
+}
+
+async function formatWeatherResult(result: string) {
+  console.log("Formatting weather result: ", result);
+  const craftedPrompt = [
+    vscode.LanguageModelChatMessage.User(
+      "convert this text into a prettier format using markdown with emojis"
+    ),
+    vscode.LanguageModelChatMessage.User(result),
+  ];
+
+  let chatResponse: vscode.LanguageModelChatResponse | undefined;
+
+  const allModels = await vscode.lm.selectChatModels();
+
+  try {
+    // const models = await vscode.lm.selectChatModels();
+
+    let [model] = await vscode.lm.selectChatModels({
+      vendor: "copilot",
+      family: "gpt-4o",
+    });
+    chatResponse = await model.sendRequest(craftedPrompt, {});
+  } catch (err) {
+    // Making the chat request might fail because
+    // - model does not exist
+    // - user consent not given
+    // - quota limits were exceeded
+    if (err instanceof vscode.LanguageModelError) {
+      console.log(err.message, err.code, err.cause);
+      if (
+        err.cause instanceof Error &&
+        err.cause.message.includes("off_topic")
+      ) {
+        console.log("User did not provide a valid state");
+      }
+    } else {
+      // add other error handling logic
+      throw err;
+    }
+  }
+
+  if (!chatResponse) {
+    return;
+  }
+
+  let answer = "";
+  for await (const fragment of chatResponse.text) {
+    answer += fragment;
+  }
+
+  return answer === "" ? "No answer" : answer;
 }
 
 // This method is called when your extension is deactivated
