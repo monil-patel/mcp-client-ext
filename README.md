@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/4723966f-ebb8-4295-b1a2-b58f9f5e0fee
 # mcp-client-ext README
 
 This is the README for your extension "mcp-client-ext". After writing up a brief description, we recommend including the following sections.
