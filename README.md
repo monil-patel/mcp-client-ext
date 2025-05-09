@@ -7,6 +7,7 @@ This is the README for your extension "mcp-client-ext". After writing up a brief
 ## Features
 
 This extension provides the following features:
+TODO change
 
 1. **Weather Alerts Command**:
    - The extension includes a command `mcp-client-ext.getWeatherAlerts` that allows users to fetch weather alerts for a specific state.
