@@ -2,8 +2,6 @@
 https://github.com/user-attachments/assets/4723966f-ebb8-4295-b1a2-b58f9f5e0fee
 # mcp-client-ext README
 
-This is the README for your extension "mcp-client-ext". After writing up a brief description, we recommend including the following sections.
-
 ## Features
 
 This extension provides the following features:
@@ -45,7 +43,7 @@ The extension defines commands in `src/extension.ts`:
 
 ## Requirements
 
-- The MCP server script must be available and accessible. The default path used in the extension is `C:\Development\mcp-tutorial\weather\build\index.js`.
+- The MCP server script must be available and accessible. The default path used in the extension is `C:\Development\mcp-tutorial\weather\build\index.js`. you can clone the server code https://github.com/monil-patel/mcp-server-poc
 - Ensure that the required dependencies for the MCP server are installed and configured.
 
 ## Extension Settings
