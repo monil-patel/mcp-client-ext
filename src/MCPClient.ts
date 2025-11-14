@@ -48,6 +48,7 @@ export class MCPClient {
         this.tools.map(({ name }) => name)
       );
     } catch (e) {
+      // Log and re-throw connection errors for upstream handling
       console.log("Failed to connect to MCP server: ", e);
       throw e;
     }
