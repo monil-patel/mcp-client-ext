@@ -62,6 +62,7 @@ This extension does not currently contribute any custom settings.
 - MCP server path must be configured correctly before use
 - Requires GitHub Copilot for result formatting
 - Weather data depends on external MCP server availability
+- Authentication may require GitHub credentials
 
 ## Release Notes
 
