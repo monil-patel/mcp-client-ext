@@ -55,7 +55,8 @@ This extension does not currently contribute any custom settings.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Server path needs to be configured for your local environment
+- Extension requires Node.js to be installed
 
 ## Release Notes
 
