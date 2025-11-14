@@ -8,6 +8,7 @@ import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"
 import readline from "readline/promises";
 
 export class MCPClient {
+  private static readonly WEATHER_TOOL_NAME = "get-alerts";
   private mcp: Client;
   private transport: StdioClientTransport | null = null;
   private tools: Tool[] = [];
@@ -65,7 +66,7 @@ export class MCPClient {
   async queryWeather(state: string) {
     console.log("Querying weather for state: ", state);
     const result = await this.mcp.callTool({
-        name: "get-alerts",
+        name: MCPClient.WEATHER_TOOL_NAME,
         arguments: {"state": state}
       });
       
