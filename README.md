@@ -64,6 +64,7 @@ This extension does not currently contribute any custom settings.
 
 - Server path needs to be configured for your local environment
 - Extension requires Node.js to be installed
+- First run may require GitHub Copilot authentication
 
 ## Release Notes
 
