@@ -74,6 +74,7 @@ async function getWeatherAlerts() {
 
         // Step 3: Query the MCP server for weather alerts
         progress.report({ message: "Querying weather alerts..." });
+        console.log(`Querying weather alerts for state: ${input}`);
         const result = await mcpClient.queryWeather(input);
         if (!result) {
           return; // Exit if no result is returned
