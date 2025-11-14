@@ -54,6 +54,11 @@ export class MCPClient {
     }
   }
 
+  /**
+   * Query weather alerts for a specific state
+   * @param state - The state name to query weather alerts for
+   * @returns Weather alert text or null if no data found
+   */
   async queryWeather(state: string) {
     console.log("Querying weather for state: ", state);
     const result = await this.mcp.callTool({
