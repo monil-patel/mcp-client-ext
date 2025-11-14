@@ -13,6 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
   console.log(
     'Congratulations, your extension "mcp-client-ext" is now active!'
   );
+  console.log('Extension activation time:', new Date().toISOString());
 
   // Register the "helloWorld" command
   const disposable = vscode.commands.registerCommand(
