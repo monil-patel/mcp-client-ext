@@ -49,6 +49,13 @@ The extension defines commands in `src/extension.ts`:
 - The MCP server script must be available and accessible. The default path used in the extension is `C:\Development\mcp-tutorial\weather\build\index.js`.
 - Ensure that the required dependencies for the MCP server are installed and configured.
 
+## Installation
+
+1. Clone this repository
+2. Run `npm install` to install dependencies
+3. Press F5 to launch the extension in debug mode
+4. Run the command "MCP Client Ext: Get Weather Alerts"
+
 ## Extension Settings
 
 This extension does not currently contribute any custom settings.
