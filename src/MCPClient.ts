@@ -7,10 +7,6 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import readline from "readline/promises";
 
-/**
- * MCPClient handles communication with MCP servers
- * Supports both JavaScript and Python server implementations
- */
 export class MCPClient {
   private mcp: Client;
   private transport: StdioClientTransport | null = null;

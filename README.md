@@ -7,7 +7,6 @@ This is the README for your extension "mcp-client-ext". After writing up a brief
 ## Features
 
 This extension provides the following features:
-TODO change
 
 1. **Weather Alerts Command**:
    - The extension includes a command `mcp-client-ext.getWeatherAlerts` that allows users to fetch weather alerts for a specific state.
@@ -49,22 +48,13 @@ The extension defines commands in `src/extension.ts`:
 - The MCP server script must be available and accessible. The default path used in the extension is `C:\Development\mcp-tutorial\weather\build\index.js`.
 - Ensure that the required dependencies for the MCP server are installed and configured.
 
-## Installation
-
-1. Clone this repository
-2. Run `npm install` to install dependencies
-3. Press F5 to launch the extension in debug mode
-4. Run the command "MCP Client Ext: Get Weather Alerts"
-
 ## Extension Settings
 
 This extension does not currently contribute any custom settings.
 
 ## Known Issues
 
-- Server path needs to be configured for your local environment
-- Extension requires Node.js to be installed
-- First run may require GitHub Copilot authentication
+Calling out known issues can help limit users opening duplicate issues against your extension.
 
 ## Release Notes
 

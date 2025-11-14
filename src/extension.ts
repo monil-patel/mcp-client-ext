@@ -7,7 +7,6 @@ import * as vscode from "vscode";
 
 import { MCPClient } from "./MCPClient";
 
-// ANOTHER CHANGE
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -31,10 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-/**
- * Command to fetch weather alerts from MCP server
- * Prompts user for state input and displays formatted results
- */
+// Command to fetch weather alerts
 async function getWeatherAlerts() {
   console.log("Activating MCP client extension");
 
@@ -121,9 +117,7 @@ async function getWeatherAlerts() {
         }
       } catch (e) {
         console.error("Failed to connect to server: ", e);
-        vscode.window.showErrorMessage(
-          "Failed to fetch weather alerts. Please check that the MCP server is accessible."
-        );
+        vscode.window.showErrorMessage("Failed to fetch weather alerts.");
       }
     }
   );
