@@ -12,6 +12,7 @@ This extension provides the following features:
    - The extension includes a command `mcp-client-ext.getWeatherAlerts` that allows users to fetch weather alerts for a specific state.
    - Users can input the state name, and the extension connects to an MCP server to retrieve weather alerts.
    - The results are formatted into a user-friendly Markdown file and displayed in a preview editor within VS Code.
+   - Powered by Model Context Protocol (MCP) for reliable server communication.
 
 ## How It Works
 
