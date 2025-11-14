@@ -46,6 +46,13 @@ The extension defines commands in `src/extension.ts`:
 - The MCP server script must be available and accessible. The default path used in the extension is `C:\Development\mcp-tutorial\weather\build\index.js`. you can clone the server code https://github.com/monil-patel/mcp-server-poc
 - Ensure that the required dependencies for the MCP server are installed and configured.
 
+## Usage
+
+1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`)
+2. Type "MCP Client Ext: Get Weather Alerts"
+3. Enter a state name when prompted
+4. View the formatted weather alerts in the preview window
+
 ## Extension Settings
 
 This extension does not currently contribute any custom settings.
