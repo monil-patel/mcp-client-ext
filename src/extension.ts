@@ -55,6 +55,7 @@ async function getWeatherAlerts() {
         );
 
         // Step 2: Prompt the user for input (state name)
+        // Input validation ensures non-empty state names
         progress.report({ message: "Waiting for user input..." });
         const input = await vscode.window.showInputBox({
           placeHolder:
