@@ -8,12 +8,13 @@ import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"
 import readline from "readline/promises";
 
 export class MCPClient {
+  private static readonly CLIENT_VERSION = "1.0.0";
   private mcp: Client;
   private transport: StdioClientTransport | null = null;
   private tools: Tool[] = [];
 
   constructor() {
-    this.mcp = new Client({ name: "mcp-client-cli", version: "1.0.0" });
+    this.mcp = new Client({ name: "mcp-client-cli", version: MCPClient.CLIENT_VERSION });
   }
 
   async connectToServer(serverScriptPath: string) {
