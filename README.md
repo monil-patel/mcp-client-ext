@@ -50,8 +50,10 @@ The extension defines commands in `src/extension.ts`:
 
 1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`)
 2. Type "MCP Client Ext: Get Weather Alerts"
-3. Enter a state name when prompted
+3. Enter a state name when prompted (e.g., "California", "Texas", "New York")
 4. View the formatted weather alerts in the preview window
+
+**Note:** Available states depend on the configured MCP server.
 
 ## Extension Settings
 
