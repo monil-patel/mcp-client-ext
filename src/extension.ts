@@ -118,7 +118,9 @@ async function getWeatherAlerts() {
         }
       } catch (e) {
         console.error("Failed to connect to server: ", e);
-        vscode.window.showErrorMessage("Failed to fetch weather alerts.");
+        vscode.window.showErrorMessage(
+          "Failed to fetch weather alerts. Please check that the MCP server is accessible."
+        );
       }
     }
   );
