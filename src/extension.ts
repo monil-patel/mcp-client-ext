@@ -178,4 +178,6 @@ async function formatWeatherResult(result: string) {
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+  console.log('Extension "mcp-client-ext" is now deactivated');
+}
