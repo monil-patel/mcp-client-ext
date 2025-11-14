@@ -12,6 +12,9 @@ export class MCPClient {
   private transport: StdioClientTransport | null = null;
   private tools: Tool[] = [];
 
+  /**
+   * Initialize a new MCP client instance
+   */
   constructor() {
     this.mcp = new Client({ name: "mcp-client-cli", version: "1.0.0" });
   }
