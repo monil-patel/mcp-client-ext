@@ -64,6 +64,16 @@ This extension does not currently contribute any custom settings.
 - Weather data depends on external MCP server availability
 - Authentication may require GitHub credentials
 
+## Troubleshooting
+
+**Extension not activating?**
+- Check that the extension is installed and enabled
+- Restart VS Code
+
+**Connection errors?**
+- Verify the MCP server path is correct
+- Ensure the server dependencies are installed
+
 ## Release Notes
 
 Users appreciate release notes as you update your extension.
