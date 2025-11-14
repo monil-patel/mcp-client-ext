@@ -31,7 +31,10 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-// Command to fetch weather alerts
+/**
+ * Command to fetch weather alerts from MCP server
+ * Prompts user for state input and displays formatted results
+ */
 async function getWeatherAlerts() {
   console.log("Activating MCP client extension");
 
