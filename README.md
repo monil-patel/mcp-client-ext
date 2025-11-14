@@ -59,7 +59,9 @@ This extension does not currently contribute any custom settings.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- MCP server path must be configured correctly before use
+- Requires GitHub Copilot for result formatting
+- Weather data depends on external MCP server availability
 
 ## Release Notes
 
